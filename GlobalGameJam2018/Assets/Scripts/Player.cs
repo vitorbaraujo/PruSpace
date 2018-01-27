@@ -7,12 +7,13 @@ public class Player : MonoBehaviour {
 	public int cardsNumber;
 	const int INITIAL_NUMBER_CARDS = 3;
 	const int MAX_VELOCITY = 4;
-	float velocity = 0;
-	public float aceleration = 0.4f;
+	public Vector3 velocity;
+	public float aceleration = 0.04f;
 
 	// Use this for initialization
 	void Start () {
 		cardsNumber = INITIAL_NUMBER_CARDS;
+		velocity = Vector3.zero;
 	}
 	
 	// Update is called once per frame
@@ -22,30 +23,45 @@ public class Player : MonoBehaviour {
 
 	void PlayerMovement(){
 
-		gameObject.transform.position += new Vector3(0.1f * velocity, 0, 0);
 		if(Input.GetKey(KeyCode.LeftArrow)){
 			//Debug.Log("Botão esquerdo pressionado");
-			if(velocity*-1 < MAX_VELOCITY)
-				velocity -= aceleration;
-			//Debug.Log("Posição do player: " + gameObject.transform.position.x);
-		}
-		else if(Input.GetKey(KeyCode.RightArrow)){
-			if(velocity < MAX_VELOCITY)
-				velocity += aceleration;
-			//Debug.Log("Botão direito pressionado");
-			//Debug.Log("Posição do player: " + gameObject.transform.position.x);
-		}
-		else{
-			velocity = 0;
+			float xVelocity = Mathf.Clamp(velocity.x - aceleration, -MAX_VELOCITY, 0);
+			velocity = new Vector3 (xVelocity, velocity.y, 0);
 		}
 
+		if(Input.GetKey(KeyCode.RightArrow)){
+			float xVelocity = Mathf.Clamp(velocity.x + aceleration, 0, MAX_VELOCITY);
+			velocity = new Vector3 (xVelocity, velocity.y, 0);
+			//Debug.Log("Botão direito pressionado");
+		}
+
+		if(!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow)){
+			velocity = new Vector3(0, velocity.y, 0);
+		}
+
+		if(Input.GetKey(KeyCode.UpArrow)){
+			//Debug.Log("Botão esquerdo pressionado");
+			float yVelocity = Mathf.Clamp(velocity.y + aceleration, 0, MAX_VELOCITY);
+			velocity = new Vector3 (velocity.x, yVelocity, 0);
+		}
+
+		if(Input.GetKey(KeyCode.DownArrow)){
+			float yVelocity = Mathf.Clamp(velocity.y - aceleration, -MAX_VELOCITY, 0);
+			velocity = new Vector3 (velocity.x, yVelocity, 0);
+			//Debug.Log("Botão direito pressionado");
+		}
+
+		if(!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow)){
+			velocity = new Vector3(velocity.x, 0, 0);
+		}
+		gameObject.transform.position += velocity;
 	}
 
-	void OnCollisionEnter2D(Collision2D col){
-		//Debug.Log("Entrou no metodo de colisão");
+	void OnCollisionStay2D(Collision2D col){
+		if(col.gameObject.name == "Horizontal Wall")
+			velocity = new Vector3(0, velocity.y, 0);
+		else if(col.gameObject.name == "Vertical Wall")
+			velocity = new Vector3(velocity.x, 0, 0);
 
-		if(col.gameObject.name == "Enemy"){
-			Debug.Log("Colidiu com a parede");
-		}
 	}
 }
