@@ -10,6 +10,16 @@ public class EnemyLine : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		createLine ();
+	}
+
+
+	// Update is called once per frame
+	void Update () {
+
+	}
+
+	void createLine() {
 		for (int i = 0; i < 6; i++) {
 			availablePositions[i] = false;
 		}
@@ -22,7 +32,6 @@ public class EnemyLine : MonoBehaviour {
 
 		int enemiesPerRow = Random.Range(1, 5);
 
-		print (enemiesPerRow);
 		for (int i = 0; i < enemiesPerRow; i++) {
 			int randomNumber = 0;
 			do {
@@ -31,13 +40,10 @@ public class EnemyLine : MonoBehaviour {
 
 			availablePositions [randomNumber] = true;
 			float randomPos = randomNumber * boxSize;
-			GameObject enemy = Instantiate (staticEnemy, new Vector3 (leftMost.x + randomPos, 0, 0), Quaternion.identity) as GameObject;
+			GameObject enemy = Instantiate (staticEnemy, transform.position, Quaternion.identity) as GameObject;
 			enemy.transform.parent = this.transform;
+			enemy.transform.localPosition = new Vector3 (leftMost.x + randomPos, 0, 0);
 		}
-	}
 
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

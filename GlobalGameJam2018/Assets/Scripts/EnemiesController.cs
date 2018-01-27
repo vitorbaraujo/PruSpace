@@ -8,8 +8,10 @@ public class EnemiesController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// y value is not working
-		GameObject line = Instantiate (enemyLine, new Vector3 (0, 0, 0), Quaternion.identity) as GameObject;
-		line.transform.parent = this.transform;
+		for (int i = 0; i < 3; i++) {
+			GameObject line = Instantiate (enemyLine, new Vector3 (0, i, 0), Quaternion.identity) as GameObject;
+			line.transform.parent = this.transform;
+		}
 	}
 	
 	// Update is called once per frame
