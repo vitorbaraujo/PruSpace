@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemiesController : MonoBehaviour {
 	public GameObject enemyLine;
+	public float spawnInterval;
 
 	private GameObject line;
 
 	void Start () {
-		InvokeRepeating ("SpawnLine", 2, 2);
+		InvokeRepeating ("SpawnLine", 2, spawnInterval);
 		// CancelInvoke();
 	}
 

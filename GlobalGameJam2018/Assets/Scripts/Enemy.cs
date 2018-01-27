@@ -13,16 +13,30 @@ public class Enemy : MonoBehaviour {
 
 	private int direction = 1;
 
-	void Update () {
-		if (speed > 0) {
-			Move ();
+	void Start() {
+		if (canShoot) {
+			InvokeRepeating ("Fire", 0.001f, shootInterval);
 		}
+	}
+
+	void Update () {
+		Move ();
+	}
+
+	//Offset
+	void Fire () {
+		GameObject bulletShoot = Instantiate(Resources.Load ("Prefabs/Bullet"),
+			gameObject.transform.position, gameObject.transform.rotation) as GameObject;
+		
+		Rigidbody2D rigidBody = bulletShoot.GetComponent<Rigidbody2D> ();
+
+		rigidBody.velocity = new Vector2(0f, -bulletSpeed);
 	}
 
 	void Move() {
 		transform.position += direction * Vector3.right * speed * Time.deltaTime;
 	}
-
+		
 	void OnTriggerEnter2D(Collider2D collision) {
 	//	print("Colidiu com " + collision.gameObject.name);
 		if (collision.gameObject.CompareTag ("wall") || collision.gameObject.CompareTag ("enemy")) {
