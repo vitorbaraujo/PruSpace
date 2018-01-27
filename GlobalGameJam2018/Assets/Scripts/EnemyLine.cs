@@ -12,11 +12,7 @@ public class EnemyLine : MonoBehaviour {
 	private Vector3 leftMost;
 	private Vector3 rightMost;
 
-	private string[] preconfs = {
-		"PVVVVV", "PPVVVV", "PPPVVV", "PPPPVV", "PPPPPV",
-		"PMVV", "PPMV", "PPPM", "PAVV", "PPAV", "PPPA",
-		"MVVV", "MA", "AVVV", "MM", "AA"
-	};
+	public string[] preconfs;
 
 	void Start () {
 		float distance = Mathf.Abs (transform.position.z - Camera.main.transform.position.z);
@@ -37,7 +33,7 @@ public class EnemyLine : MonoBehaviour {
 	}
 
 	void getRandom() {
-		int idx = Random.Range (0, preconfs.Length - 1);
+		int idx = Random.Range (0, preconfs.Length);
 
 		System.Random rnd = new System.Random ();
 		var numbers = Enumerable.Range (0, preconfs[idx].Length).OrderBy (r => rnd.Next ()).ToArray ();
