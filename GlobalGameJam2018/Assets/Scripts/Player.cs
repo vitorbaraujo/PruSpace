@@ -98,7 +98,7 @@ public class Player : MonoBehaviour {
 	IEnumerator DamageFlash()
     {
 		state = State.invincible;
-//		CameraController.instance.ShakeCameraInTime(0.3f, 0.05f, 0.005f);
+		//sCameraController.instance.ShakeCameraInTime(0.3f, 0.05f, 0.005f);
         for (int i = 0; i < 5; i++)
         {
             //playerSprite.material.shader = _shaderGUItext;
