@@ -7,13 +7,15 @@ public class Player : MonoBehaviour {
 
 	public int cardsNumber;
 	const int INITIAL_NUMBER_CARDS = 3;
-	const int MAX_VELOCITY = 4;
+	const float MAX_VELOCITY = 1f;
 	public Vector3 velocity;
-	public float aceleration = 0.04f;
+	public float aceleration = 0.008f;
 	GameObject cardText;
 	private Sprite normalState;
 	private SpriteRenderer playerSprite;
 	private Shader shaderGUIText;
+	private enum State{normal, invincible};
+	private State state;
 
 	void Start () {
 
@@ -78,17 +80,11 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		if(col.gameObject.CompareTag("enemy")){
+		if(col.gameObject.CompareTag("enemy") && state == State.normal){
 			Debug.Log("Triggou com " + col.gameObject.name);
 			cardsNumber -= 1;
 			StartCoroutine(DamageFlash());
 		}
-	}
-
-	void TakeDamage(){
-		Sprite damageSprite = Resources.Load<Sprite>("Sprites/idle enemy");
-		gameObject.GetComponent<SpriteRenderer>().sprite = damageSprite;
-		Invoke("NormalState", 2f);
 	}
 
 	void NormalState() {
@@ -101,7 +97,8 @@ public class Player : MonoBehaviour {
 
 	IEnumerator DamageFlash()
     {
-
+		state = State.invincible;
+//		CameraController.instance.ShakeCameraInTime(0.3f, 0.05f, 0.005f);
         for (int i = 0; i < 5; i++)
         {
             //playerSprite.material.shader = _shaderGUItext;
@@ -116,6 +113,7 @@ public class Player : MonoBehaviour {
         }
 
 		playerSprite.color = Color.white;
+		state = State.normal;
     }
 
 }
