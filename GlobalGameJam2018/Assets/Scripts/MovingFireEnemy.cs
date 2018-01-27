@@ -25,20 +25,7 @@ public class MovingFireEnemy : MonoBehaviour {
 		count = 0f;
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		if (transform.position.x > xmax) {
-			movingRight = false;
-		} else if (transform.position.x < xmin) {
-			movingRight = true;
-		}
-		
-		if (movingRight) {
-			transform.position += Vector3.right * speed * Time.deltaTime;
-		} else {
-			transform.position += Vector3.left * speed * Time.deltaTime;
-		}
-
 		if (count > countShoot) {
 			GameObject bulletShoot = Instantiate(bullet, gameObject.transform.position, gameObject.transform.rotation);
 			bulletShoot.GetComponent<Rigidbody2D>().velocity = bulletShoot.transform.forward * 6f;

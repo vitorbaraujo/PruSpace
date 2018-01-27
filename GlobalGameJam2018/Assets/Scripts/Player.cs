@@ -12,14 +12,12 @@ public class Player : MonoBehaviour {
 	public float aceleration = 0.04f;
 	GameObject cardText;
 
-	// Use this for initialization
 	void Start () {
 		cardsNumber = INITIAL_NUMBER_CARDS;
 		velocity = Vector3.zero;
 		cardText = GameObject.Find("NumberCards");
 	}
 
-	// Update is called once per frame
 	void FixedUpdate () {
 		PlayerMovement();
 		UpdateCardNumber();

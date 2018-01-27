@@ -7,9 +7,8 @@ public class EnemiesController : MonoBehaviour {
 
 	private GameObject line;
 
-	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("SpawnLine", 0.0001f, 2);
+		InvokeRepeating ("SpawnLine", 2, 2);
 		// CancelInvoke();
 	}
 
