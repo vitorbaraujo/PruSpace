@@ -11,9 +11,11 @@ public class Enemy : MonoBehaviour {
 	public float bulletSpeed, shootInterval;
 	public int weight;
 
-	private int direction = 1;
+	private int direction;
 
 	void Start() {
+		direction = (Random.Range (0, 2) == 1 ? 1 : -1);
+
 		if (canShoot) {
 			InvokeRepeating ("Fire", 0.001f, shootInterval);
 		}

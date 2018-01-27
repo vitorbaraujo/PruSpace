@@ -80,7 +80,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		if(col.gameObject.CompareTag("enemy") && state == State.normal){
+		if((col.gameObject.CompareTag("enemy") || col.gameObject.CompareTag("enemyBullet") ) && state == State.normal){
 			Debug.Log("Triggou com " + col.gameObject.name);
 			cardsNumber -= 1;
 			StartCoroutine(DamageFlash());

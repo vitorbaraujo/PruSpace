@@ -29,8 +29,13 @@ public class EnemiesController : MonoBehaviour {
 			if (++currentLine == limits [idx]) {
 				currentLine = 0;
 				idx++;
-				if(idx < 6) preconfsQueue.Dequeue ();
+				if (idx < 6)
+					preconfsQueue.Dequeue ();
 			}
+		} else if (idx == 6 && spawnInterval > 0.01f) {
+			spawnInterval -= 0.05f;
+			CancelInvoke ("SpawnLine");
+			Invoke ("SpawnLine", spawnInterval);
 		}
 
 	}
