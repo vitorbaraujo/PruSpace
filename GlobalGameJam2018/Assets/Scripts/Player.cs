@@ -59,12 +59,22 @@ public class Player : MonoBehaviour {
 		gameObject.transform.position += velocity;
 	}
 
+
 	void OnCollisionStay2D(Collision2D col){
 		if(col.gameObject.name == "Horizontal Wall")
 			velocity = new Vector3(0, velocity.y, 0);
 		else if(col.gameObject.name == "Vertical Wall")
 			velocity = new Vector3(velocity.x, 0, 0);
 
+		//if(col.gameObject.name == "PlayerCollision")
+			Debug.Log("Colidiu com " + col.gameObject.name);
+	}
+
+	void OnTriggerEnter2D(Collider2D col){
+		if(col.gameObject.CompareTag("enemy")){
+			Debug.Log("Triggou com " + col.gameObject.name);
+			cardsNumber -= 1;
+		}
 	}
 
 	void UpdateCardNumber(){
