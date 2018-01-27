@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -9,16 +10,19 @@ public class Player : MonoBehaviour {
 	const int MAX_VELOCITY = 4;
 	public Vector3 velocity;
 	public float aceleration = 0.04f;
+	GameObject cardText;
 
 	// Use this for initialization
 	void Start () {
 		cardsNumber = INITIAL_NUMBER_CARDS;
 		velocity = Vector3.zero;
+		cardText = GameObject.Find("NumberCards");
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		PlayerMovement();
+		UpdateCardNumber();
 	}
 
 	void PlayerMovement(){
@@ -63,5 +67,9 @@ public class Player : MonoBehaviour {
 		else if(col.gameObject.name == "Vertical Wall")
 			velocity = new Vector3(velocity.x, 0, 0);
 
+	}
+
+	void UpdateCardNumber(){
+		cardText.GetComponent<Text>().text = cardsNumber.ToString();
 	}
 }
