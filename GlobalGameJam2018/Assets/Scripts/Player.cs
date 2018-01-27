@@ -11,11 +11,18 @@ public class Player : MonoBehaviour {
 	public Vector3 velocity;
 	public float aceleration = 0.04f;
 	GameObject cardText;
+	private Sprite normalState;
+	private SpriteRenderer playerSprite;
+	private Shader shaderGUIText;
 
 	void Start () {
+
+		playerSprite = GetComponent<SpriteRenderer>();
+		shaderGUIText = Shader.Find("GUI/Text Shader");
 		cardsNumber = INITIAL_NUMBER_CARDS;
 		velocity = Vector3.zero;
 		cardText = GameObject.Find("NumberCards");
+		normalState = gameObject.GetComponent<Sprite>();
 	}
 
 	void FixedUpdate () {
@@ -74,10 +81,41 @@ public class Player : MonoBehaviour {
 		if(col.gameObject.CompareTag("enemy")){
 			Debug.Log("Triggou com " + col.gameObject.name);
 			cardsNumber -= 1;
+			StartCoroutine(DamageFlash());
 		}
+	}
+
+	void TakeDamage(){
+		Sprite damageSprite = Resources.Load<Sprite>("Sprites/idle enemy");
+		gameObject.GetComponent<SpriteRenderer>().sprite = damageSprite;
+		Invoke("NormalState", 2f);
+	}
+
+	void NormalState() {
+		gameObject.GetComponent<SpriteRenderer>().sprite = normalState;
 	}
 
 	void UpdateCardNumber(){
 		cardText.GetComponent<Text>().text = cardsNumber.ToString();
 	}
+
+	IEnumerator DamageFlash()
+    {
+
+        for (int i = 0; i < 5; i++)
+        {
+            //playerSprite.material.shader = _shaderGUItext;
+            playerSprite.color = Color.blue;
+
+            yield return new WaitForSeconds(.1f);
+
+            //playerSprite.material.shader = _shaderSpritesDefault;
+            playerSprite.color = Color.black;
+
+			yield return new WaitForSeconds(.1f);
+        }
+
+		playerSprite.color = Color.white;
+    }
+
 }
