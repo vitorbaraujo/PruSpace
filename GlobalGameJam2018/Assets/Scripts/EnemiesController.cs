@@ -5,18 +5,16 @@ using UnityEngine;
 public class EnemiesController : MonoBehaviour {
 	public GameObject enemyLine;
 
+	private GameObject line;
+
 	// Use this for initialization
 	void Start () {
-		// y value is not working
-		for (int i = 0; i < 3; i++) {
-			GameObject line = Instantiate (enemyLine, new Vector3 (0, i, 0), Quaternion.identity) as GameObject;
-			line.transform.parent = this.transform;
-		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		InvokeRepeating ("SpawnLine", 0.0001f, 2);
+		// CancelInvoke();
 	}
 
+	void SpawnLine() {
+		line = Instantiate (enemyLine, transform.position, Quaternion.identity) as GameObject;
+		line.transform.parent = this.transform;
+	}
 }

@@ -7,6 +7,7 @@ public class EnemyLine : MonoBehaviour {
 
 	private float boxSize;
 	private bool[] availablePositions = new bool[6];
+	public int enemiesPerRow;
 
 	// Use this for initialization
 	void Start () {
@@ -15,8 +16,8 @@ public class EnemyLine : MonoBehaviour {
 
 
 	// Update is called once per frame
-	void Update () {
-
+	void FixedUpdate () {
+		this.transform.position += new Vector3 (0, -2 * Time.deltaTime, 0);
 	}
 
 	void createLine() {
@@ -30,7 +31,7 @@ public class EnemyLine : MonoBehaviour {
 
 		boxSize = (rightMost.x - leftMost.x) / 6f;
 
-		int enemiesPerRow = Random.Range(1, 5);
+		enemiesPerRow = Random.Range(1, 5);
 
 		for (int i = 0; i < enemiesPerRow; i++) {
 			int randomNumber = 0;
