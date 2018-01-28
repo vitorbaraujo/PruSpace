@@ -19,6 +19,11 @@ public class Player : MonoBehaviour {
 	private enum State{normal, invincible};
 	private State state;
 
+	public void ActivateInvincible(){
+		StopAllCoroutines ();
+		StartCoroutine(InvincibleChange());
+	}
+
 	void Start () {
 		playerSprite = GetComponent<SpriteRenderer>();
 		shaderGUIText = Shader.Find("GUI/Text Shader");
@@ -89,6 +94,8 @@ public class Player : MonoBehaviour {
 			Debug.Log("Triggou com " + col.gameObject.name);
 			cardsNumber -= 1;
 			StartCoroutine(DamageFlash());
+		}else if(col.gameObject.CompareTag("powerup")){
+			Destroy (col.gameObject);
 		}
 	}
 
@@ -100,25 +107,29 @@ public class Player : MonoBehaviour {
 		cardText.GetComponent<Text>().text = cardsNumber.ToString();
 	}
 
-	IEnumerator DamageFlash()
-    {
+	IEnumerator DamageFlash(){
 		state = State.invincible;
-		//sCameraController.instance.ShakeCameraInTime(0.3f, 0.05f, 0.005f);
-        for (int i = 0; i < 5; i++)
-        {
-            //playerSprite.material.shader = _shaderGUItext;
-            playerSprite.color = Color.blue;
-
-            yield return new WaitForSeconds(.1f);
-
-            //playerSprite.material.shader = _shaderSpritesDefault;
-            playerSprite.color = Color.black;
+		for (int i = 0; i < 5; i++){
+			playerSprite.color = Color.blue;
 
 			yield return new WaitForSeconds(.1f);
-        }
+
+			playerSprite.color = Color.black;
+
+			yield return new WaitForSeconds(.1f);
+		}
 
 		playerSprite.color = Color.white;
 		state = State.normal;
-    }
+	}
 
+	IEnumerator InvincibleChange(){
+		state = State.invincible;
+		playerSprite.color = Color.green;
+
+		yield return new WaitForSeconds(3f);
+
+		playerSprite.color = Color.white;
+		state = State.normal;
+	}
 }

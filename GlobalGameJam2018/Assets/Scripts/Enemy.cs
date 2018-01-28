@@ -44,7 +44,6 @@ public class Enemy : MonoBehaviour {
 		if (collision.gameObject.CompareTag ("wall") || collision.gameObject.CompareTag ("enemy")) {
 			direction *= -1;
 		}
-
 	}
 
 //	void OnCollisionEnter2D(Collision2D collision) {

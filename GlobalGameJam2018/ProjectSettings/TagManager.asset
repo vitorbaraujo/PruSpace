@@ -6,6 +6,8 @@ TagManager:
   tags:
   - enemy
   - enemyBullet
+  - wall
+  - powerup
   layers:
   - Default
   - TransparentFX

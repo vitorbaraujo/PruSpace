@@ -7,6 +7,8 @@ public class EnemyLine : MonoBehaviour {
 	public GameObject staticEnemy;
 	public int enemiesPerRow;
 
+	public static float verticalVelocity = -2;
+
 	private float boxSize;
 	private bool[] availablePositions = new bool[6];
 	private Vector3 leftMost;
@@ -29,7 +31,7 @@ public class EnemyLine : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		this.transform.position += new Vector3 (0, -2 * Time.deltaTime, 0);
+		this.transform.position += new Vector3 (0, verticalVelocity * Time.deltaTime, 0);
 	}
 
 	void getRandom() {
