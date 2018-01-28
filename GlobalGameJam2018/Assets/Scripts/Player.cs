@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
-	const int INITIAL_NUMBER_CARDS = 1000000;
+	const int INITIAL_NUMBER_CARDS = 3;
 	const float MAX_VELOCITY = 1f;
 
 	public int cardsNumber;
@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 	public float aceleration = 0.008f;
 	public LevelManager levelManager;
 
-	GameObject cardText;
+	public GameObject cardText;
 	private Sprite normalState;
 	private SpriteRenderer playerSprite;
 	private Shader shaderGUIText;
@@ -29,7 +29,6 @@ public class Player : MonoBehaviour {
 		shaderGUIText = Shader.Find("GUI/Text Shader");
 		cardsNumber = INITIAL_NUMBER_CARDS;
 		velocity = Vector3.zero;
-		cardText = GameObject.Find("NumberCards");
 		normalState = gameObject.GetComponent<Sprite>();
 	}
 

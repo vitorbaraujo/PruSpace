@@ -25,7 +25,6 @@ public class Enemy : MonoBehaviour {
 		Move ();
 	}
 
-	//Offset
 	void Fire () {
 		GameObject bulletShoot = Instantiate(Resources.Load ("Prefabs/Bullet"),
 			gameObject.transform.position, gameObject.transform.rotation) as GameObject;
@@ -36,6 +35,8 @@ public class Enemy : MonoBehaviour {
 		rigidBody.velocity = new Vector2 (playerPosition.x, 
 			(playerPosition.y > gameObject.transform.position.y ? 1f : -1f) * bulletSpeed +
 			BackgroundController.verticalVelocity +	playerPosition.y);
+
+		Destroy (bulletShoot, 4f);
 	}
 
 	void Move() {
@@ -43,16 +44,8 @@ public class Enemy : MonoBehaviour {
 	}
 		
 	void OnTriggerEnter2D(Collider2D collision) {
-	//	print("Colidiu com " + collision.gameObject.name);
 		if (collision.gameObject.CompareTag ("wall") || collision.gameObject.CompareTag ("enemy")) {
 			direction *= -1;
 		}
 	}
-
-//	void OnCollisionEnter2D(Collision2D collision) {
-//		//print("Colidiu com " + collision.gameObject.name);
-//		if (collision.gameObject.CompareTag ("wall") || collision.gameObject.CompareTag ("enemy")) {
-//			direction *= -1;
-//		}
-//	}
 }

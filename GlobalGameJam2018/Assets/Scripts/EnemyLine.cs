@@ -12,12 +12,15 @@ public class EnemyLine : MonoBehaviour {
 	private Vector3 leftMost;
 	private Vector3 rightMost;
 
+	private float spritePadding = 0.6f;
+
 	public string[] preconfs;
 
 	void Start () {
 		float distance = Mathf.Abs (transform.position.z - Camera.main.transform.position.z);
-		leftMost = Camera.main.ViewportToWorldPoint (new Vector3 (0.1f, 0, distance));
-		rightMost = Camera.main.ViewportToWorldPoint (new Vector3 (0.9f, 0, distance));
+
+		leftMost = new Vector2 (-2.8f + spritePadding, 0);
+		rightMost = new Vector2 (2.8f - spritePadding, 0);
 
 		getRandom ();
 	}
@@ -39,26 +42,32 @@ public class EnemyLine : MonoBehaviour {
 		var numbers = Enumerable.Range (0, preconfs[idx].Length).OrderBy (r => rnd.Next ()).ToArray ();
 
 		int posInLine = 0;
-		float boxSize = (rightMost.x - leftMost.x) / 6f;
+		float boxSize = 4.6f / 5f;
+		print (preconfs[idx]);
 		for (int i = 0; i < numbers.Length; i++) {
 			GameObject enemy = null;
+			print ("left " + leftMost.x);
+			print ("POS " + preconfs[idx][numbers [i]] + " " + (leftMost.x + posInLine * boxSize) + " " + (posInLine * boxSize));
 			switch (preconfs[idx][numbers [i]]) {
 			case 'V':
 				posInLine += 1;
 				break;
 			case 'P':
-				enemy = Instantiate (Resources.Load ("Prefabs/Static Enemy"), transform.position, Quaternion.identity) as GameObject;
+				enemy = Instantiate (Resources.Load ("Prefabs/Static Enemy"), Vector3.zero, Quaternion.identity) as GameObject;
 				enemy.transform.position = new Vector3(leftMost.x + posInLine * boxSize, transform.position.y, 0);
+//				enemy.transform.position = new Vector3(0, transform.position.y, 0);
 				posInLine += 1;
 				break;
 			case 'M':
-				enemy = Instantiate(Resources.Load("Prefabs/Moving Enemy"), transform.position, Quaternion.identity) as GameObject;
+				enemy = Instantiate(Resources.Load("Prefabs/Moving Enemy"), Vector3.zero, Quaternion.identity) as GameObject;
 				enemy.transform.position = new Vector3(leftMost.x + posInLine * boxSize, transform.position.y, 0);
+//				enemy.transform.position = new Vector3(0, transform.position.y, 0);
 				posInLine += 3;
 				break;
 			case 'A':
-				enemy = Instantiate(Resources.Load("Prefabs/Moving Fire Enemy"), transform.position, Quaternion.identity) as GameObject;
+				enemy = Instantiate(Resources.Load("Prefabs/Moving Fire Enemy"), Vector3.zero, Quaternion.identity) as GameObject;
 				enemy.transform.position = new Vector3(leftMost.x + posInLine * boxSize, transform.position.y, 0);
+				//enemy.transform.position = new Vector3(0, transform.position.y, 0);
 				posInLine += 3;
 				break;
 			default:

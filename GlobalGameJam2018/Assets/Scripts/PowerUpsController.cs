@@ -16,7 +16,8 @@ public class PowerUpsController : MonoBehaviour {
 		GameObject newPowerUp = null;
 
 		float distance = Mathf.Abs (transform.position.z - Camera.main.transform.position.z);
-		float x = Camera.main.ViewportToWorldPoint (new Vector3 (Random.Range(0.1f, 0.9f), 0, distance)).x;
+		//float x = Camera.main.ViewportToWorldPoint (new Vector3 (Random.Range(0.1f, 0.9f), 0, distance)).x;
+		float x = Random.Range(-2.4f, 2.2f);
 
 		Vector3 xOffset = new Vector3(x, 0, 0);
 
