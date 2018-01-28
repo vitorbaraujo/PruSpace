@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour {
 
@@ -38,7 +39,7 @@ public class DialogueManager : MonoBehaviour {
 
 		if(isConversationStarted){
 			if(sentences.Count == 0){
-			EndDialogue();
+				EndDialogue();
 			}
 
 			string sentence = sentences.Dequeue();
@@ -56,6 +57,6 @@ public class DialogueManager : MonoBehaviour {
 	}
 
 	void EndDialogue(){
-
+		SceneManager.LoadScene("MainMenu");
 	}
 }
