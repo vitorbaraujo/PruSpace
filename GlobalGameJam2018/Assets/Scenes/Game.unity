@@ -1966,62 +1966,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 58959029}
---- !u!1 &1870335529
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1870335531}
-  - component: {fileID: 1870335530}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1870335530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1870335529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00f7c0dacd3c6034d980bd64ae0f95fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Pause
-    clip: {fileID: 8300000, guid: 49d9b51230ddd9348ba641cc437b1994, type: 3}
-    volume: 0.5
-    pitch: 1.5
-    source: {fileID: 0}
-  - name: Choose Option
-    clip: {fileID: 8300000, guid: afad9be8f6ad0e449a1fb110f8281acd, type: 3}
-    volume: 0.5
-    pitch: 1.5
-    source: {fileID: 0}
-  - name: Hit Damage
-    clip: {fileID: 8300000, guid: 3afd1e07395f70f458f542e40dedd23d, type: 3}
-    volume: 0.5
-    pitch: 1.5
-    source: {fileID: 0}
---- !u!4 &1870335531
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1870335529}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1874464977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,6 +2134,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRatio: 0.5625
   isShaking: 0
+--- !u!1001 &1935471000
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4487632585479782, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487632585479782, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487632585479782, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487632585479782, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487632585479782, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487632585479782, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487632585479782, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487632585479782, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2102078158
 GameObject:
   m_ObjectHideFlags: 0

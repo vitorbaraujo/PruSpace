@@ -22,10 +22,12 @@ public class PowerUp : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.gameObject.name == "Player") {
 			if (type == Type.invincible) {
+				FindObjectOfType<AudioManager>().Play("Invincible");
 				Player player = col.gameObject.GetComponent<Player> ();
 				Debug.Log ("Activate invincible");
 				player.ActivateInvincible ();
 			} else {
+				FindObjectOfType<AudioManager>().Play("SpeedUp");
 				controller.ActivateSpeedUp ();
 				Debug.Log ("Activate speed up");
 			}

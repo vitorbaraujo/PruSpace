@@ -56,6 +56,9 @@ public class EnemiesController : MonoBehaviour {
 																GetComponent<BackgroundController>();
 					backgroundController.ActivateEndless();
 				}
+				else {
+					//FindObjectOfType<AudioManager>().Play("SpaceMusic");
+				}
 					
 			}
 		} else if (idx == 6 && spawnInterval > 0.01f) {

@@ -31,6 +31,7 @@ public class Player : MonoBehaviour {
 		velocity = Vector3.zero;
 		cardText = GameObject.Find("NumberCards");
 		normalState = gameObject.GetComponent<Sprite>();
+		FindObjectOfType<AudioManager>().Play("EarthMusic");
 	}
 
 	void FixedUpdate () {
