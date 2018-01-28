@@ -6,6 +6,9 @@ public class EnemiesController : MonoBehaviour {
 	public float spawnInterval;
 	public EnemyLine enemyLine;
 
+	public int difficult;
+	public float changeDifficultInterval;
+
 	private GameObject line;
 
 	private int currentLine;
@@ -16,9 +19,23 @@ public class EnemiesController : MonoBehaviour {
 	void Start () {
 		generateX ();
 		InvokeRepeating ("SpawnLine", 2, spawnInterval);
+
+		changeDifficultInterval = 5f;
+		InvokeRepeating ("IncreaseDifficult", 0.001f, changeDifficultInterval);
 		// CancelInvoke();
 		currentLine = 0;
 		idx = 0;
+
+		difficult = 1;
+	}
+
+	void Update () {
+		BackgroundMove.multiplier = difficult * 0.2f;
+	}
+
+	void IncreaseDifficult() {
+		if (difficult < 40)
+			difficult++;
 	}
 		
 	void SpawnLine() {

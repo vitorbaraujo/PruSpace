@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour {
 		
 		Rigidbody2D rigidBody = bulletShoot.GetComponent<Rigidbody2D> ();
 
-		rigidBody.velocity = new Vector2(0f, -bulletSpeed);
+		rigidBody.velocity = new Vector2(0f, -bulletSpeed + BackgroundMove.verticalVelocity);
 	}
 
 	void Move() {

@@ -9,8 +9,6 @@ public class PowerUpsController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating ("SpawnPowerUp", 2, spawnInterval);
-
-
 	}
 
 	void SpawnPowerUp () {
@@ -22,7 +20,6 @@ public class PowerUpsController : MonoBehaviour {
 			newPowerUp = Instantiate (Resources.Load("Prefabs/InvinciblePowerUp"), transform.position, Quaternion.identity) as GameObject;
 		}
 		newPowerUp.transform.parent = this.transform;
-	
 	}
 	
 	// Update is called once per frame
@@ -31,12 +28,14 @@ public class PowerUpsController : MonoBehaviour {
 	}
 
 	public void ActivateSpeedUp(){
-		if(EnemyLine.verticalVelocity > -5f) StartCoroutine (SpeedUp());
+		StopAllCoroutines();
+		StartCoroutine (SpeedUp());
 	}
 
 	IEnumerator SpeedUp(){
-		EnemyLine.verticalVelocity = -6f;
+		BackgroundMove.multiplier = 3f;
+
 		yield return new WaitForSeconds(5f);
-		EnemyLine.verticalVelocity = -2f;
+		BackgroundMove.multiplier = 1f;
 	}
 }
