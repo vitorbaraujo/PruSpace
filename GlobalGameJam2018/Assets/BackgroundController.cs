@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BackgroundController : MonoBehaviour {
-	private float cameraTop;
+	private float cameraTop = 45f;
 	Vector3 originalPosition;
 
 	public static float speed;
 
-	public float offset;
+	private float offset = 21f;
 
-	public float teste;
+	private float teste;
 
 	public static float verticalVelocity;
 	public static float multiplier;
@@ -18,11 +18,13 @@ public class BackgroundController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		float distance = Mathf.Abs (transform.position.z - Camera.main.transform.position.z);
-		cameraTop = Camera.main.ViewportToWorldPoint (new Vector3 (0, 1f, distance)).y;
+		//cameraTop = Camera.main.ViewportToWorldPoint (new Vector3 (0, 1f, distance)).y;
+		cameraTop = 45f;
+		offset = -3.9f;
 
-		originalPosition = gameObject.transform.position + new Vector3(0, offset, 0);
+		originalPosition = gameObject.transform.position;
 
-		speed = -2f;
+		speed = -2f;	
 		multiplier = 1f;
 	}
 	
@@ -37,7 +39,12 @@ public class BackgroundController : MonoBehaviour {
 		transform.position += new Vector3(0, Time.deltaTime * verticalVelocity, 0);
 
 		if (transform.position.y <= cameraTop) {
-			transform.position = originalPosition;
+			transform.position = originalPosition + new Vector3(0, offset, 0);
 		}
+	}
+
+	public void ActivateEndless() {
+		cameraTop = 5f;
+		offset = -32f;
 	}
 }

@@ -50,8 +50,13 @@ public class EnemiesController : MonoBehaviour {
 			if (++currentLine == limits [idx]) {
 				currentLine = 0;
 				idx++;
-				if (idx < 6)
+				if (idx < 6) {
 					preconfsQueue.Dequeue ();
+					BackgroundController backgroundController = GameObject.Find("BackgroundController").
+																GetComponent<BackgroundController>();
+					backgroundController.ActivateEndless();
+				}
+					
 			}
 		} else if (idx == 6 && spawnInterval > 0.01f) {
 			spawnInterval -= 0.05f;

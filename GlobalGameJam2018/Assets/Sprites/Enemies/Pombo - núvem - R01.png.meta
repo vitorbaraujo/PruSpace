@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f02bbc390a01f1a449cf035701aa747f
-timeCreated: 1517123454
+timeCreated: 1517146292
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -50,7 +50,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -153,20 +153,6 @@ TextureImporter:
         y: 17
         width: 48
         height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: "Pombo - n\xFAvem - R01_4"
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 1
-        width: 10
-        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
