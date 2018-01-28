@@ -13,27 +13,6 @@ public class CameraController : MonoBehaviour {
 		cam.ResetAspect();
 	}
 
-//	public float screenHeight = 720f;
-//	public float screenWidth = 1280f;
-//	public float targetAspect = 9f / 16f;
-//	public float orthographicSize;
-//	private Camera mainCamera;
-//
-//	// Use this for initialization
-//	void Start () {
-//
-//	    // Initialize variables
-//	    mainCamera = Camera.main;
-//	    orthographicSize = mainCamera.orthographicSize;
-//
-//	    // Calculating ortographic width
-//	    float orthoWidth = orthographicSize / screenHeight * screenWidth;
-//	    // Setting aspect ration
-//	    orthoWidth = orthoWidth / (targetAspect / mainCamera.aspect);
-//	    // Setting Size
-//	    Camera.main.orthographicSize = (orthoWidth / Screen.width * Screen.height);
-//	}
-
 	public bool isShaking = false;
 
 	IEnumerator ShakeInTime(float shakeIntensity, float shakeTotalTime, float shakeDelay)

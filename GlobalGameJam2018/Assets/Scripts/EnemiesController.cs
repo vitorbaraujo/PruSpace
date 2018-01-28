@@ -21,11 +21,11 @@ public class EnemiesController : MonoBehaviour {
 		InvokeRepeating ("SpawnLine", 2, spawnInterval);
 
 		changeDifficultInterval = 5f;
+
 		InvokeRepeating ("IncreaseDifficult", 0.001f, changeDifficultInterval);
-		// CancelInvoke();
+
 		currentLine = 0;
 		idx = 0;
-
 		difficult = 1;
 	}
 

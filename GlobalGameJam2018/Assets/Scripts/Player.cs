@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour {
 	const int INITIAL_NUMBER_CARDS = 3;
@@ -11,8 +12,8 @@ public class Player : MonoBehaviour {
 	public Vector3 velocity;
 	public float aceleration = 0.008f;
 	public LevelManager levelManager;
+	public TextMeshProUGUI lifeCount;
 
-	GameObject cardText;
 	private Sprite normalState;
 	private SpriteRenderer playerSprite;
 	private Shader shaderGUIText;
@@ -29,7 +30,6 @@ public class Player : MonoBehaviour {
 		shaderGUIText = Shader.Find("GUI/Text Shader");
 		cardsNumber = INITIAL_NUMBER_CARDS;
 		velocity = Vector3.zero;
-		cardText = GameObject.Find("NumberCards");
 		normalState = gameObject.GetComponent<Sprite>();
 	}
 
@@ -84,16 +84,12 @@ public class Player : MonoBehaviour {
 			velocity = new Vector3(0, velocity.y, 0);
 		else if(col.gameObject.name == "Vertical Wall")
 			velocity = new Vector3(velocity.x, 0, 0);
-
-		//if(col.gameObject.name == "PlayerCollision")
-			Debug.Log("Colidiu com " + col.gameObject.name);
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
 
 		// Player taking damage
 		if((col.gameObject.CompareTag("enemy") || col.gameObject.CompareTag("enemyBullet") ) && state == State.normal){
-			Debug.Log("Triggou com " + col.gameObject.name);
 			cardsNumber -= 1;
 			FindObjectOfType<AudioManager>().Play("Hit Damage");
 			StartCoroutine(DamageFlash());
@@ -107,7 +103,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void UpdateCardNumber(){
-		cardText.GetComponent<Text>().text = cardsNumber.ToString();
+		lifeCount.text = cardsNumber.ToString();
 	}
 
 	IEnumerator DamageFlash(){

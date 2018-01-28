@@ -40,16 +40,8 @@ public class Enemy : MonoBehaviour {
 	}
 		
 	void OnTriggerEnter2D(Collider2D collision) {
-	//	print("Colidiu com " + collision.gameObject.name);
 		if (collision.gameObject.CompareTag ("wall") || collision.gameObject.CompareTag ("enemy")) {
 			direction *= -1;
 		}
 	}
-
-//	void OnCollisionEnter2D(Collision2D collision) {
-//		//print("Colidiu com " + collision.gameObject.name);
-//		if (collision.gameObject.CompareTag ("wall") || collision.gameObject.CompareTag ("enemy")) {
-//			direction *= -1;
-//		}
-//	}
 }
