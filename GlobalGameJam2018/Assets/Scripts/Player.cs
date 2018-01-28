@@ -7,12 +7,15 @@ public class Player : MonoBehaviour {
 	const int INITIAL_NUMBER_CARDS = 1000000;
 	const float MAX_VELOCITY = 1f;
 
+	public float score;
 	public int cardsNumber;
 	public Vector3 velocity;
 	public float aceleration = 0.008f;
 	public LevelManager levelManager;
 
 	GameObject cardText;
+	GameObject scoreText;
+
 	private Sprite normalState;
 	private SpriteRenderer playerSprite;
 	private Shader shaderGUIText;
@@ -30,12 +33,16 @@ public class Player : MonoBehaviour {
 		cardsNumber = INITIAL_NUMBER_CARDS;
 		velocity = Vector3.zero;
 		cardText = GameObject.Find("NumberCards");
+
+		scoreText = GameObject.Find("Score");
+
 		normalState = gameObject.GetComponent<Sprite>();
 	}
 
 	void FixedUpdate () {
 		PlayerMovement();
 		UpdateCardNumber();
+		UpdateScore();
 
 		if (cardsNumber == 0) {
 			levelManager.LoadLevel("GameOver");
@@ -108,6 +115,11 @@ public class Player : MonoBehaviour {
 
 	void UpdateCardNumber(){
 		cardText.GetComponent<Text>().text = cardsNumber.ToString();
+	}
+
+	void UpdateScore(){
+		scoreText.GetComponent<Text>().text = score.ToString("000000");
+		score += -BackgroundController.verticalVelocity;
 	}
 
 	IEnumerator DamageFlash(){

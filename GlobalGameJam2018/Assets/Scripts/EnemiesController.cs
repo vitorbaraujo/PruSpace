@@ -52,6 +52,8 @@ public class EnemiesController : MonoBehaviour {
 				idx++;
 				if (idx < 6) {
 					preconfsQueue.Dequeue ();
+					print("idx "+idx);
+				} else {
 					BackgroundController backgroundController = GameObject.Find("BackgroundController").
 																GetComponent<BackgroundController>();
 					backgroundController.ActivateEndless();
