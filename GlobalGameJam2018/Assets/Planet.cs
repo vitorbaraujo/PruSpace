@@ -11,6 +11,6 @@ public class Planet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position += new Vector3 (0, Time.deltaTime * BackgroundController.verticalVelocity * 0.5f, 0);
+		transform.position += new Vector3 (0, Time.deltaTime * BackgroundController.verticalVelocity * 0.25f, 0);
 	}
 }

@@ -44,5 +44,6 @@ public class BackgroundController : MonoBehaviour {
 	public void ActivateEndless() {
 		cameraTop = 5f;
 		offset = -32f;
+		Instantiate(Resources.Load ("Planets/Planets"), new Vector3 (0, 27, 5), Quaternion.identity);
 	}
 }

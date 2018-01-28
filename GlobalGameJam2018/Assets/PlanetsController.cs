@@ -18,6 +18,7 @@ public class PlanetsController : MonoBehaviour {
 	}
 
 	IEnumerator CreatePlanet(){
+		yield return new WaitForSeconds(4f);
 		while (true) {
 			//cria
 			string path = "Planets/Sprite-Planeta" + Random.Range(1, 8);
