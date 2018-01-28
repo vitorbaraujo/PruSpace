@@ -19,9 +19,6 @@ public class EnemyLine : MonoBehaviour {
 		leftMost = Camera.main.ViewportToWorldPoint (new Vector3 (0.1f, 0, distance));
 		rightMost = Camera.main.ViewportToWorldPoint (new Vector3 (0.9f, 0, distance));
 
-		leftMost = transform.parent.position;
-		print (leftMost);
-
 		getRandom ();
 	}
 

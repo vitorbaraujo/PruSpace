@@ -503,7 +503,7 @@ MonoBehaviour:
   aceleration: 0.04
   levelManager: {fileID: 114522606458011032, guid: a54ec9f0786aedf4686cacec7fb1b7f8,
     type: 2}
-  cardText: {fileID: 1054398475}
+  lifeCount: {fileID: 1054398477}
 --- !u!212 &989899448
 SpriteRenderer:
   m_ObjectHideFlags: 0
