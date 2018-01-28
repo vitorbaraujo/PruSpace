@@ -16,13 +16,21 @@ public class EnemiesController : MonoBehaviour {
 	private Queue<string []> preconfsQueue;
 	private int[] limits = {7, 5, 6, 5, 6, 11};
 
+	IEnumerator IncreaseDifficult() {
+		yield return new WaitForSeconds(0.0001f);
+
+
+		for (difficult = 1; difficult < 17; difficult++) {
+			yield return new WaitForSeconds(changeDifficultInterval);
+		}
+	}
+
 	void Start () {
 		generateX ();
 		InvokeRepeating ("SpawnLine", 2, spawnInterval);
 
-		changeDifficultInterval = 5f;
-		InvokeRepeating ("IncreaseDifficult", 0.001f, changeDifficultInterval);
-		// CancelInvoke();
+		StartCoroutine(IncreaseDifficult());
+
 		currentLine = 0;
 		idx = 0;
 
@@ -31,11 +39,7 @@ public class EnemiesController : MonoBehaviour {
 
 	void Update () {
 		BackgroundController.speed = -difficult * 0.9f;
-	}
-
-	void IncreaseDifficult() {
-		if (difficult < 40)
-			difficult++;
+		print(difficult);
 	}
 		
 	void SpawnLine() {

@@ -281,7 +281,7 @@ MonoBehaviour:
   enemyLine: {fileID: 114580750049997868, guid: 8e9167ac6f51328408ea86eb076e1018,
     type: 2}
   difficult: 0
-  changeDifficultInterval: 0
+  changeDifficultInterval: 1
 --- !u!4 &192174748
 Transform:
   m_ObjectHideFlags: 0
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUp: {fileID: 0}
-  spawnInterval: 3
+  spawnInterval: 4
 --- !u!4 &1015579399
 Transform:
   m_ObjectHideFlags: 0
