@@ -90,9 +90,12 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
+
+		// Player taking damage
 		if((col.gameObject.CompareTag("enemy") || col.gameObject.CompareTag("enemyBullet") ) && state == State.normal){
 			Debug.Log("Triggou com " + col.gameObject.name);
 			cardsNumber -= 1;
+			FindObjectOfType<AudioManager>().Play("Hit Damage");
 			StartCoroutine(DamageFlash());
 		}else if(col.gameObject.CompareTag("powerup")){
 			Destroy (col.gameObject);

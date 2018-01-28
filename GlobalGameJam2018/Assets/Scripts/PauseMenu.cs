@@ -22,22 +22,26 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void Resume() {
+		FindObjectOfType<AudioManager>().Play("Choose Option");
 		pauseMenuUI.SetActive(false);
 		Time.timeScale = 1f;
 		gameIsPaused = false;
 	}
 
 	void Pause() {
+		FindObjectOfType<AudioManager>().Play("Pause");
 		pauseMenuUI.SetActive(true);
 		Time.timeScale = 0f;
 		gameIsPaused = true;
 	}
 
 	public void LoadMenu(){
+		FindObjectOfType<AudioManager>().Play("Choose Option");
 		SceneManager.LoadScene("MainMenu");
 	}
 
 	public void QuitGame(){
+		FindObjectOfType<AudioManager>().Play("Choose Option");
 		Application.Quit();
 	}
 }
