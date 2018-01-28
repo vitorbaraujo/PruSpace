@@ -50,7 +50,6 @@ public class Player : MonoBehaviour {
 	}
 
 	void UpdateScore(){
-		Debug.Log("socore " + score);
 		scoreText.GetComponent<Text>().text = score.ToString("000000");
 		score += -BackgroundController.verticalVelocity;
 	}
@@ -89,6 +88,7 @@ public class Player : MonoBehaviour {
 		if(!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow)){
 			velocity = new Vector3(velocity.x, 0, 0);
 		}
+
 		gameObject.transform.position += velocity;
 	}
 
@@ -107,9 +107,16 @@ public class Player : MonoBehaviour {
 
 		// Player taking damage
 		if((col.gameObject.CompareTag("enemy") || col.gameObject.CompareTag("enemyBullet") ) && state == State.normal){
-			Debug.Log("Triggou com " + col.gameObject.name);
-			cardsNumber -= 1;
 			FindObjectOfType<AudioManager>().Play("Hit Damage");
+			Debug.Log("Triggou com " + col.gameObject.name);
+			if(col.gameObject.name == "Static Enemy(Clone)")
+		        FindObjectOfType<AudioManager>().Play("DroneSound");
+		      else if(col.gameObject.name == "Moving Enemy(Clone)")
+				FindObjectOfType<AudioManager>().Play("OvniSound");
+		      else if(col.gameObject.name == "Moving Fire Enemy(Clone)")
+				FindObjectOfType<AudioManager>().Play("ThunderShoot");
+			cardsNumber -= 1;
+
 			StartCoroutine(DamageFlash());
 		}else if(col.gameObject.CompareTag("powerup")){
 			Destroy (col.gameObject);
