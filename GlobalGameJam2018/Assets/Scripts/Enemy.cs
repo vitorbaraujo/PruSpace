@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour {
 		direction = (Random.Range (0, 2) == 1 ? 1 : -1);
 
 		if (canShoot) {
-			InvokeRepeating ("Fire", 0.001f, shootInterval);
+			InvokeRepeating ("Fire", 0.00001f, shootInterval);
 		}
 	}
 
@@ -29,10 +29,13 @@ public class Enemy : MonoBehaviour {
 	void Fire () {
 		GameObject bulletShoot = Instantiate(Resources.Load ("Prefabs/Bullet"),
 			gameObject.transform.position, gameObject.transform.rotation) as GameObject;
-		
-		Rigidbody2D rigidBody = bulletShoot.GetComponent<Rigidbody2D> ();
 
-		rigidBody.velocity = new Vector2(0f, -bulletSpeed + BackgroundController.verticalVelocity);
+		Vector3 playerPosition = GameObject.Find ("Player").transform.position;
+
+		Rigidbody2D rigidBody = bulletShoot.GetComponent<Rigidbody2D> ();
+		rigidBody.velocity = new Vector2 (playerPosition.x, 
+			(playerPosition.y > gameObject.transform.position.y ? 1f : -1f) * bulletSpeed +
+			BackgroundController.verticalVelocity +	playerPosition.y);
 	}
 
 	void Move() {

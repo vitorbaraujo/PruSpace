@@ -37,6 +37,8 @@ public class PauseMenu : MonoBehaviour {
 
 	public void LoadMenu(){
 		FindObjectOfType<AudioManager>().Play("Choose Option");
+		Time.timeScale = 1f;
+		gameIsPaused = false;
 		SceneManager.LoadScene("MainMenu");
 	}
 
