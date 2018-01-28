@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
-	const int INITIAL_NUMBER_CARDS = 3;
+	const int INITIAL_NUMBER_CARDS = 1000000;
 	const float MAX_VELOCITY = 1f;
 
 	public int cardsNumber;

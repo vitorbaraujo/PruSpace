@@ -30,7 +30,7 @@ public class EnemiesController : MonoBehaviour {
 	}
 
 	void Update () {
-		BackgroundMove.multiplier = difficult * 0.2f;
+		BackgroundController.speed = -difficult * 0.9f;
 	}
 
 	void IncreaseDifficult() {

@@ -29,7 +29,7 @@ public class EnemyLine : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		this.transform.position += new Vector3 (0, BackgroundMove.verticalVelocity * Time.deltaTime, 0);
+		this.transform.position += new Vector3 (0, BackgroundController.verticalVelocity * Time.deltaTime, 0);
 	}
 
 	void getRandom() {

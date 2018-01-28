@@ -33,9 +33,9 @@ public class PowerUpsController : MonoBehaviour {
 	}
 
 	IEnumerator SpeedUp(){
-		BackgroundMove.multiplier = 3f;
+		BackgroundController.multiplier = 2f;
 
 		yield return new WaitForSeconds(5f);
-		BackgroundMove.multiplier = 1f;
+		BackgroundController.multiplier = 1f;
 	}
 }
