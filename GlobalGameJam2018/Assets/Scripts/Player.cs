@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
-
-	public int cardsNumber;
 	const int INITIAL_NUMBER_CARDS = 3;
 	const float MAX_VELOCITY = 1f;
+
+	public int cardsNumber;
 	public Vector3 velocity;
 	public float aceleration = 0.008f;
+	public LevelManager levelManager;
+
 	GameObject cardText;
 	private Sprite normalState;
 	private SpriteRenderer playerSprite;
@@ -18,7 +20,6 @@ public class Player : MonoBehaviour {
 	private State state;
 
 	void Start () {
-
 		playerSprite = GetComponent<SpriteRenderer>();
 		shaderGUIText = Shader.Find("GUI/Text Shader");
 		cardsNumber = INITIAL_NUMBER_CARDS;
@@ -30,6 +31,10 @@ public class Player : MonoBehaviour {
 	void FixedUpdate () {
 		PlayerMovement();
 		UpdateCardNumber();
+
+		if (cardsNumber == 0) {
+			levelManager.LoadLevel("GameOver");
+		}
 	}
 
 	void PlayerMovement(){
