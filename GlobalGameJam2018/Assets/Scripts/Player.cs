@@ -8,11 +8,14 @@ public class Player : MonoBehaviour {
 	const float MAX_VELOCITY = 1f;
 
 	public int cardsNumber;
+	public float score;
 	public Vector3 velocity;
 	public float aceleration = 0.008f;
 	public LevelManager levelManager;
 
 	public GameObject cardText;
+	public GameObject scoreText;
+
 	private Sprite normalState;
 	private SpriteRenderer playerSprite;
 	private Shader shaderGUIText;
@@ -35,11 +38,23 @@ public class Player : MonoBehaviour {
 	void FixedUpdate () {
 		PlayerMovement();
 		UpdateCardNumber();
+		UpdateScore();
 
 		if (cardsNumber == 0) {
+			int intScore = (int) score;
+			int maxScore = PlayerPrefs.GetInt("maxScore");
+			PlayerPrefs.SetInt("maxScore", Mathf.Max(intScore, maxScore));
+			PlayerPrefs.SetInt("currentScore", intScore);
 			levelManager.LoadLevel("GameOver");
 		}
 	}
+
+	void UpdateScore(){
+		Debug.Log("socore " + score);
+		scoreText.GetComponent<Text>().text = score.ToString("000000");
+		score += -BackgroundController.verticalVelocity;
+	}
+
 
 	void PlayerMovement(){
 
