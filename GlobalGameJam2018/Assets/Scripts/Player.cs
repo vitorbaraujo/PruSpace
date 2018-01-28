@@ -31,7 +31,6 @@ public class Player : MonoBehaviour {
 		velocity = Vector3.zero;
 		cardText = GameObject.Find("NumberCards");
 		normalState = gameObject.GetComponent<Sprite>();
-		FindObjectOfType<AudioManager>().Play("EarthMusic");
 	}
 
 	void FixedUpdate () {
@@ -95,6 +94,12 @@ public class Player : MonoBehaviour {
 		// Player taking damage
 		if((col.gameObject.CompareTag("enemy") || col.gameObject.CompareTag("enemyBullet") ) && state == State.normal){
 			Debug.Log("Triggou com " + col.gameObject.name);
+			if(col.gameObject.name == "Static Enemy(Clone)")
+				FindObjectOfType<AudioManager>().Play("DroneSound");
+			else if(col.gameObject.name == "Moving Enemy(Clone)")
+				FindObjectOfType<AudioManager>().Play("OvniSound");
+			else if(col.gameObject.name == "Moving Fire Enemy(Clone)")
+				FindObjectOfType<AudioManager>().Play("ThunderShoot");
 			cardsNumber -= 1;
 			FindObjectOfType<AudioManager>().Play("Hit Damage");
 			StartCoroutine(DamageFlash());

@@ -2141,6 +2141,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4487632585479782, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2171,6 +2176,66 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4487632585479782, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[6].name
+      value: ThunderShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: bf0997411c617f94aa0c1f705378d285, type: 3}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[6].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[6].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[7].name
+      value: DroneSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: df350b8ff1050a447a176287961df915, type: 3}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[7].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[7].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[8].name
+      value: OvniSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0029836671f4dd9429ba80e7586032ce, type: 3}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[8].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
+        type: 2}
+      propertyPath: sounds.Array.data[8].pitch
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

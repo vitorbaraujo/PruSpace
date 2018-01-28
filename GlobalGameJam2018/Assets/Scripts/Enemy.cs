@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour {
 		direction = (Random.Range (0, 2) == 1 ? 1 : -1);
 
 		if (canShoot) {
+			FindObjectOfType<AudioManager>().Play("ThunderShoot");
 			InvokeRepeating ("Fire", 0.001f, shootInterval);
 		}
 	}
