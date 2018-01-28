@@ -34,9 +34,7 @@ public class BackgroundController : MonoBehaviour {
 
 		teste = verticalVelocity;
 
-		float backgroundSpeed = -verticalVelocity * (1/8f);
-
-		transform.position += new Vector3(0, Time.deltaTime * verticalVelocity, 0);
+		transform.position += new Vector3(0, Time.deltaTime * verticalVelocity * 0.25f, 0);
 
 		if (transform.position.y <= cameraTop) {
 			transform.position = originalPosition + new Vector3(0, offset, 0);

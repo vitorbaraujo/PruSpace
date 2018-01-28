@@ -80,3 +80,6 @@ MonoBehaviour:
   staticEnemy: {fileID: 1389801346174438, guid: 3545e9f07fc21a340bfcc826be317290,
     type: 2}
   enemiesPerRow: 0
+  preconfs:
+  - MVVV
+  - MM
