@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour {
 
 	public void LoadLevel(string name) {
+		FindObjectOfType<AudioManager>().Play("Choose Option");
 		SceneManager.LoadScene (name);
 	}
 
 	public void QuitRequest() {
+		FindObjectOfType<AudioManager>().Play("Choose Option");
 		Application.Quit ();
 	}
 }
