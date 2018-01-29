@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
-	const int INITIAL_NUMBER_CARDS = 3;
+	const int INITIAL_NUMBER_CARDS = 7;
 	const float MAX_VELOCITY = 1f;
 
 	public int cardsNumber;
@@ -94,9 +94,9 @@ public class Player : MonoBehaviour {
 
 
 	void OnCollisionStay2D(Collision2D col){
-		if(col.gameObject.name == "Horizontal Wall")
+		if(col.gameObject.name == "HWall")
 			velocity = new Vector3(0, velocity.y, 0);
-		else if(col.gameObject.name == "Vertical Wall")
+		else if(col.gameObject.name == "VWall")
 			velocity = new Vector3(velocity.x, 0, 0);
 
 		//if(col.gameObject.name == "PlayerCollision")
@@ -116,7 +116,6 @@ public class Player : MonoBehaviour {
 		      else if(col.gameObject.name == "Moving Fire Enemy(Clone)")
 				FindObjectOfType<AudioManager>().Play("ThunderShoot");
 			cardsNumber -= 1;
-
 			StartCoroutine(DamageFlash());
 		}else if(col.gameObject.CompareTag("powerup")){
 			Destroy (col.gameObject);
