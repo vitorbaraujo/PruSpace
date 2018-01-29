@@ -256,6 +256,7 @@ MonoBehaviour:
     - "Duck, o pombo correio precisa mandar uma mensagem urgente a outro planeta distante.
       \xC9 impressind\xEDvel que esta mensagem chegue o mais r\xE1pido poss\xEDvel.
       A vida terrestre depende disso!"
+  playOnStart: 1
 --- !u!114 &584750574
 MonoBehaviour:
   m_ObjectHideFlags: 0

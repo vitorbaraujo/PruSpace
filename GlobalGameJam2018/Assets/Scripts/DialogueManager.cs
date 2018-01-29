@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour {
 	private bool isConversationStarted;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		isConversationStarted = false;
 		sentences = new Queue<string>();
 	}
@@ -23,16 +23,22 @@ public class DialogueManager : MonoBehaviour {
 	public void StartDialogue (Dialogue dialogue){
 
 		//nameText.text = dialogue.name;
+		Debug.Log("Dialogue:\nName: " + dialogue.name);
 		if(!isConversationStarted){
 			isConversationStarted = true;
-			sentences.Clear();
+			if(sentences != null)
+				sentences.Clear();
 
 			foreach(string sentence in dialogue.sentences){
+				Debug.Log("Sentence: " + sentence + "\n");
 				sentences.Enqueue(sentence);
 			}
-		}
-		else
 			DisplayNextSentence();
+		}
+		else{
+			DisplayNextSentence();
+		}
+			
 	}
 
 	public void DisplayNextSentence(){
@@ -41,10 +47,11 @@ public class DialogueManager : MonoBehaviour {
 			if(sentences.Count == 0){
 				EndDialogue();
 			}
-
-			string sentence = sentences.Dequeue();
-			StopAllCoroutines();
-			StartCoroutine(TypeSentence(sentence));
+			else{
+				string sentence = sentences.Dequeue();
+				StopAllCoroutines();
+				StartCoroutine(TypeSentence(sentence));
+			}
 		}
 	}
 
