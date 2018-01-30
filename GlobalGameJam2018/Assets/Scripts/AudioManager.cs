@@ -10,7 +10,11 @@ public class AudioManager : MonoBehaviour {
 
 	public static AudioManager instance;
 
-	public string soundPath;
+	private string lastScene;
+	private string lastTheme;
+	//public string soundPath;
+
+	//public string[] scenes;
 
 	void Awake() {
 
@@ -32,25 +36,35 @@ public class AudioManager : MonoBehaviour {
 			s.source.pitch = s.pitch;
 			s.source.loop = s.loop;
 		}
+
+		lastScene = SceneManager.GetActiveScene().name;
 	}
 
-	void Start()
-	{
-		print("Sound path" + soundPath);
-		Play(soundPath);
+	void Start(){
+		Play("Intro");
+//		lastTheme = GetComponent<AudioSource>().clip.ToString();
+//		Debug.Log("Last Theme: " + lastTheme);
 	}
 
-	void OnEnable() {
-		SceneManager.sceneLoaded += doSomething;
+	void Update(){
+//		Debug.Log("Current Theme: " + GetComponent<AudioSource>().name);
+		if(SceneManager.GetActiveScene().name != lastScene){ //&& lastTheme != GetComponent<AudioSource>().name){
+			lastScene = SceneManager.GetActiveScene().name;
+			Play("EarthMusic");
+		}
 	}
 
-	void OnDisable() {
-		SceneManager.sceneLoaded -= doSomething;
-	}
-
-	void doSomething(Scene scene, LoadSceneMode mode) {
-		Play(soundPath);
-	}
+//	void OnEnable() {
+//		SceneManager.sceneLoaded += doSomething;
+//	}
+//
+//	void OnDisable() {
+//		SceneManager.sceneLoaded -= doSomething;
+//	}
+//
+//	void doSomething(Scene scene, LoadSceneMode mode) {
+//		Play(soundPath);
+//	}
 
 	public void Play(string name){
 //		print("NAME" + name);
@@ -58,6 +72,7 @@ public class AudioManager : MonoBehaviour {
 		if(s == null){
 			return;
 		}
+		s.isPlaying = true;
 		s.source.Play();
 	}
 }

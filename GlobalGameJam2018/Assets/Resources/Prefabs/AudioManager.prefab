@@ -113,3 +113,6 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   soundPath: 
+  scenes:
+  - Intro
+  - MainMenu

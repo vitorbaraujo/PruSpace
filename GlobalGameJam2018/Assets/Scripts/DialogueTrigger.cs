@@ -10,7 +10,6 @@ public class DialogueTrigger : MonoBehaviour {
 	void Start(){
 
 		if(playOnStart){
-			Debug.Log("dialogo nao eh nulo!");
 			FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 		}
 	}

@@ -23,14 +23,14 @@ public class DialogueManager : MonoBehaviour {
 	public void StartDialogue (Dialogue dialogue){
 
 		//nameText.text = dialogue.name;
-		Debug.Log("Dialogue:\nName: " + dialogue.name);
+		//Debug.Log("Dialogue:\nName: " + dialogue.name);
 		if(!isConversationStarted){
 			isConversationStarted = true;
 			if(sentences != null)
 				sentences.Clear();
 
 			foreach(string sentence in dialogue.sentences){
-				Debug.Log("Sentence: " + sentence + "\n");
+				//Debug.Log("Sentence: " + sentence + "\n");
 				sentences.Enqueue(sentence);
 			}
 			DisplayNextSentence();
