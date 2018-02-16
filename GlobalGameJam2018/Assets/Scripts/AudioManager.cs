@@ -46,6 +46,9 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	void Update(){
+
+		//TODO: Fazer um método que pegue o tema a partir de uma cena para ela fazer a verificação
+		// 			se deve tocar a mesma música ou deve-se reproduzir outra.
 //		Debug.Log("Current Theme: " + GetComponent<AudioSource>().name);
 		if(SceneManager.GetActiveScene().name != lastScene && currentTheme == firstTheme){ //&& lastTheme != GetComponent<AudioSource>().name){
 			lastScene = SceneManager.GetActiveScene().name;

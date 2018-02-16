@@ -22,6 +22,14 @@ public class Player : MonoBehaviour {
 	private enum State{normal, invincible};
 	private State state;
 
+	// touch offset allows item not shake when it starts to move
+	float deltaX;
+	float deltaY;
+
+	bool moveAllowed = false;
+
+	Rigidbody2D rb;
+
 	public void ActivateInvincible(){
 		StopAllCoroutines ();
 		StartCoroutine(InvincibleChange());
@@ -33,6 +41,11 @@ public class Player : MonoBehaviour {
 		cardsNumber = INITIAL_NUMBER_CARDS;
 		velocity = Vector3.zero;
 		normalState = gameObject.GetComponent<Sprite>();
+		rb = GetComponent<Rigidbody2D>();
+	}
+
+	void Update(){
+		PlayerMovementTouch();
 	}
 
 	void FixedUpdate () {
@@ -54,6 +67,53 @@ public class Player : MonoBehaviour {
 		score += -BackgroundController.verticalVelocity;
 	}
 
+	void PlayerMovementTouch(){
+
+		Debug.Log("[Player]: Entrou no método de toque");
+		// If touch event takes place
+		if(Input.touchCount > 0){
+
+			Debug.Log("[Player]: Entrou no evento de toque");
+			// Get touch to take a deal with
+			Touch touch = Input.GetTouch(0);
+
+			// Obtain touch position
+			Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+			Debug.Log("[Player]: Posição do toque = ["+ touchPos.x + "," + touchPos.y + "]");
+
+			// Processing touch phase
+			switch(touch.phase){
+
+				// If you touch the screen
+				case TouchPhase.Began:
+
+					// If you touch the item
+					if(GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos)) {
+						Debug.Log("[Player]: Tocou no item");
+						// Get the offset between position you touches and center the of the game object
+						deltaX = touchPos.x - gameObject.transform.position.x;
+						deltaY = touchPos.y - gameObject.transform.position.y;
+
+						moveAllowed = true;
+					}
+					break;
+
+				// If you move your finger
+				case TouchPhase.Moved:
+					moveAllowed = true;
+					Debug.Log("[Player]: Moveu o personagem");
+					if(GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos) && moveAllowed) {
+						gameObject.transform.position = new Vector3(touchPos.x - deltaX, touchPos.y - deltaY, 0);
+					}
+					break;
+
+				// If you release your finger
+				case TouchPhase.Ended:
+					moveAllowed = false;
+					break;
+			}
+		}
+	}
 
 	void PlayerMovement(){
 

@@ -77,15 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -107,6 +110,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &470791447
 GameObject:
@@ -179,11 +184,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!4 &470791452
 Transform:
   m_ObjectHideFlags: 0
@@ -249,13 +254,13 @@ MonoBehaviour:
     name: Narrador
     sentences:
     - 21XX... O mundo foi dominado pela tecnologia.
-    - "Nenhuma mensagem \xE9 mais segura, emails e dados criptografados s\xE3o facilmente
-      acessados."
-    - "Em um mundo onde a tecnologia n\xE3o \xE9 mais confi\xE1vel, medidas mais tradicionais
-      tiveram que ser tomadas."
+    - Nenhuma mensagem eh mais segura, emails e dados criptografados sao facilmente
+      acessados.
+    - Em um mundo onde a tecnologia nao eh mais confiavel, medidas mais tradicionais
+      tiveram que ser tomadas.
     - "Duck, o pombo correio precisa mandar uma mensagem urgente a outro planeta distante.
-      \xC9 impressind\xEDvel que esta mensagem chegue o mais r\xE1pido poss\xEDvel.
-      A vida terrestre depende disso!"
+      Eh impressindivel que esta mensagem chegue o mais rapido poss\xEDvel. A vida
+      terrestre depende disso!"
   playOnStart: 1
 --- !u!114 &584750574
 MonoBehaviour:
