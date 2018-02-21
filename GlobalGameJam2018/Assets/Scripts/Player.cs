@@ -110,7 +110,7 @@ public class Player : MonoBehaviour {
 			velocity = new Vector3(velocity.x, 0, 0);
 
 		//if(col.gameObject.name == "PlayerCollision")
-			Debug.Log("Colidiu com " + col.gameObject.name);
+//			Debug.Log("Colidiu com " + col.gameObject.name);
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
@@ -118,7 +118,7 @@ public class Player : MonoBehaviour {
 		// Player taking damage
 		if((col.gameObject.CompareTag("enemy") || col.gameObject.CompareTag("enemyBullet") ) && state == State.normal){
 			FindObjectOfType<AudioManager>().Play("Hit Damage");
-			Debug.Log("Triggou com " + col.gameObject.name);
+//			Debug.Log("Triggou com " + col.gameObject.name);
 			if(col.gameObject.name == "Static Enemy(Clone)")
 		        FindObjectOfType<AudioManager>().Play("DroneSound");
 		      else if(col.gameObject.name == "Moving Enemy(Clone)")

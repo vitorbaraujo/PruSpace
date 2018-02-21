@@ -39,7 +39,7 @@ public class EnemiesController : MonoBehaviour {
 
 	void Update () {
 		BackgroundController.speed = -difficult * 0.9f;
-		print(difficult);
+//		print(difficult);
 	}
 		
 	void SpawnLine() {

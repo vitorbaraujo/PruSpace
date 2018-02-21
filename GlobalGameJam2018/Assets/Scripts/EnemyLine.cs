@@ -43,11 +43,11 @@ public class EnemyLine : MonoBehaviour {
 
 		int posInLine = 0;
 		float boxSize = 4.6f / 5f;
-		print (preconfs[idx]);
+//		print (preconfs[idx]);
 		for (int i = 0; i < numbers.Length; i++) {
 			GameObject enemy = null;
-			print ("left " + leftMost.x);
-			print ("POS " + preconfs[idx][numbers [i]] + " " + (leftMost.x + posInLine * boxSize) + " " + (posInLine * boxSize));
+//			print ("left " + leftMost.x);
+//			print ("POS " + preconfs[idx][numbers [i]] + " " + (leftMost.x + posInLine * boxSize) + " " + (posInLine * boxSize));
 			switch (preconfs[idx][numbers [i]]) {
 			case 'V':
 				posInLine += 1;

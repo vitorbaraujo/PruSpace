@@ -55,7 +55,7 @@ public class TouchMovement : MonoBehaviour {
 				case TouchPhase.Moved:
 					moveAllowed = true;
 					if(GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos) && moveAllowed) {
-						GameObject.Find("Player").transform.position = new Vector3(touchPos.x, touchPos.y, 0);
+						GameObject.Find("Player").transform.position = new Vector3(touchPos.x - deltaX, touchPos.y - deltaY, 0);
 						//rb.MovePosition(new Vector2(touchPos.x - deltaX, touchPos.y - deltaY));
 					}
 					break;
