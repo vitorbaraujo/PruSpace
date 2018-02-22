@@ -35,8 +35,8 @@ public class PlanetsController : MonoBehaviour {
 
 			case 2:
 				path = "BackgroundObjects/Sprite-Nebula" + Random.Range(1, 4);
-				scale = new Vector3(1.986305f, 1.986305f, 1.986305f);
-				xPosition = 0;
+				scale = new Vector3(2f, 2f, 2f);
+				xPosition = 0.17f;
 				break;
 
 			case 3:
