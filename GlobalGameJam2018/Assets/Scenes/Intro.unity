@@ -254,13 +254,13 @@ MonoBehaviour:
     name: Narrador
     sentences:
     - 21XX... O mundo foi dominado pela tecnologia.
-    - Nenhuma mensagem eh mais segura, emails e dados criptografados sao facilmente
-      acessados.
-    - Em um mundo onde a tecnologia nao eh mais confiavel, medidas mais tradicionais
-      tiveram que ser tomadas.
+    - "Nenhuma mensagem \xE9 mais segura, emails e dados criptografados s\xE3o facilmente
+      acessados."
+    - "Em um mundo onde a tecnologia nao \xE9 mais confi\xE1vel, medidas mais tradicionais
+      tiveram que ser tomadas."
     - "Duck, o pombo correio precisa mandar uma mensagem urgente a outro planeta distante.
-      Eh imprescindivel que esta mensagem chegue o mais rapido poss\xEDvel. A vida
-      terrestre depende disso!"
+      \xC9 imprescind\xEDvel que esta mensagem chegue o mais r\xE1pido poss\xEDvel.
+      A vida terrestre depende disso!"
   playOnStart: 1
 --- !u!114 &584750574
 MonoBehaviour:
@@ -283,8 +283,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 124d9bd28bf4ed94bb709cf955f074c2, type: 2}
+  m_sharedMaterial: {fileID: 21341634187482366, guid: 124d9bd28bf4ed94bb709cf955f074c2,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

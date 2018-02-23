@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-	public float speed;
+	// The enemy can be, imprevisible, shooter, or static
+	public bool imprevisible, shooter;
+	public float verticalSpeed;
+	public float horizontalSpeed;
 
 	public bool canShoot;
 	public SpriteRenderer bulletSprite;
@@ -41,11 +44,21 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void Move() {
-		transform.position += direction * Vector3.right * speed * Time.deltaTime;
+
+		// Get the enemy current position
+		Vector2 position = transform.position;
+
+		// Compute the enemy new position
+		position = new Vector2(position.x + horizontalSpeed  * direction * Time.deltaTime, position.y + verticalSpeed * Time.deltaTime);
+
+		// Update the enemy position
+		transform.position = position;
+		//transform.position += direction * Vector3.right * horizontalSpeed * Time.deltaTime;
 	}
 		
 	void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.gameObject.CompareTag ("wall") || collision.gameObject.CompareTag ("enemy")) {
+		if ((collision.gameObject.CompareTag ("wall") || collision.gameObject.CompareTag ("enemy")) && !imprevisible) {
+			Debug.Log("Colidiu com: " + collision.gameObject.name);
 			direction *= -1;
 		}
 	}

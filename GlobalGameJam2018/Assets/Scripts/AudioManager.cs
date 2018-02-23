@@ -54,8 +54,8 @@ public class AudioManager : MonoBehaviour {
 			lastScene = SceneManager.GetActiveScene().name;
 			Sound s = Array.Find(sounds, sound => sound.name == currentTheme);
 			s.source.Pause();
-			Play("EarthMusic");
-			currentTheme = "EarthMusic";
+			Play("MainTheme");
+			currentTheme = "MainTheme";
 		}
 	}
 

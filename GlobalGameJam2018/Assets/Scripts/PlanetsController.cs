@@ -22,9 +22,9 @@ public class PlanetsController : MonoBehaviour {
 	}
 
 	private string selectObject(){
-		int objectOption = Random.Range(1, 3);
+		int objectOption = Random.Range(1, 4);
 		string path = "";
-		int objectSize = Random.Range(1, 10);
+		int objectSize = Random.Range(1, 11);
 
 		switch(objectOption){
 			case 1:
@@ -34,13 +34,13 @@ public class PlanetsController : MonoBehaviour {
 				break;
 
 			case 2:
-				path = "BackgroundObjects/Sprite-Nebula" + Random.Range(1, 4);
+				path = "BackgroundObjects/Sprite-Nebula" + Random.Range(1, 5);
 				scale = new Vector3(2f, 2f, 2f);
 				xPosition = 0.17f;
 				break;
 
 			case 3:
-				path = "BackgroundObjects/Sprite-Estrela" + Random.Range(1, 2);
+				path = "BackgroundObjects/Sprite-Estrela" + Random.Range(1, 3);
 				scale = new Vector3((float)objectSize, (float)objectSize, (float)objectSize);
 				xPosition = Random.Range(-2.4f, 2.2f);
 				break;

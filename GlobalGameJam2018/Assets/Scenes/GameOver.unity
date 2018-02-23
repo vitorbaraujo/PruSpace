@@ -77,15 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -107,6 +110,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &220924352
 GameObject:
@@ -388,7 +393,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: afad9be8f6ad0e449a1fb110f8281acd, type: 3}
     volume: 0.5
     pitch: 1.5
+    loop: 0
     source: {fileID: 0}
+    isPlaying: 0
+  firstTheme: 
 --- !u!4 &243080475
 Transform:
   m_ObjectHideFlags: 0
@@ -458,8 +466,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: TRY AGAIN
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 124d9bd28bf4ed94bb709cf955f074c2, type: 2}
+  m_sharedMaterial: {fileID: 21341634187482366, guid: 124d9bd28bf4ed94bb709cf955f074c2,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -778,8 +787,9 @@ MonoBehaviour:
 
     lose'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 124d9bd28bf4ed94bb709cf955f074c2, type: 2}
+  m_sharedMaterial: {fileID: 21341634187482366, guid: 124d9bd28bf4ed94bb709cf955f074c2,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1119,8 +1129,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Back to menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: 163292f6f226d954593d45b079f8aae0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 124d9bd28bf4ed94bb709cf955f074c2, type: 2}
+  m_sharedMaterial: {fileID: 21341634187482366, guid: 124d9bd28bf4ed94bb709cf955f074c2,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
