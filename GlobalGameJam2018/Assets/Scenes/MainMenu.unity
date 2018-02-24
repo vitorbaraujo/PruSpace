@@ -194,11 +194,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114316229292683312, guid: d91f9161ebc3ed4439ed5241db8bea6f,
-        type: 2}
-      propertyPath: soundPath
-      value: EarthMusic
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d91f9161ebc3ed4439ed5241db8bea6f, type: 2}
   m_IsPrefabParent: 0

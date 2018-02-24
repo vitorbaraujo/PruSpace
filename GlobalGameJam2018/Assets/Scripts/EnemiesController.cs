@@ -110,7 +110,9 @@ public class EnemiesController : MonoBehaviour {
 					
 			}
 		} else if (idx == 6 && spawnInterval > 0.01f) {
-			spawnInterval -= 0.05f;
+			if(spawnInterval != 0.01f){
+				spawnInterval -= 0.005f;
+			}
 			CancelInvoke ("SpawnLine");
 			Invoke ("SpawnLine", spawnInterval);
 			Invoke ("SpawnEnemy", maxSpawnRateInSeconds);
