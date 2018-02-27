@@ -30,7 +30,11 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void Update () {
+		MoveBullet();
+		Move ();
+	}
 
+	private void MoveBullet(){
 		if(bulletShoot != null){
 			bulletShoot.transform.position = Vector2.MoveTowards(bulletShoot.transform.position, playerPosition, bulletSpeed * Time.deltaTime);
 
@@ -45,7 +49,6 @@ public class Enemy : MonoBehaviour {
 				isShooting = false;
 			}
 		}
-		Move ();
 	}
 
 	void Fire () {

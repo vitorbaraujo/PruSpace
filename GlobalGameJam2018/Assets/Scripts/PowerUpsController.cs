@@ -42,8 +42,10 @@ public class PowerUpsController : MonoBehaviour {
 
 	IEnumerator SpeedUp(){
 		BackgroundController.multiplier = 2f;
+		FindObjectOfType<Player>().scoreBonus = 1.2f;
 
 		yield return new WaitForSeconds(5f);
 		BackgroundController.multiplier = 1f;
+		FindObjectOfType<Player>().scoreBonus = 1f;
 	}
 }

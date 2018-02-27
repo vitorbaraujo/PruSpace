@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 
 	public int cardsNumber;
 	public float score;
+	public float scoreBonus;
 	public Vector3 velocity;
 	public float aceleration = 0.008f;
 	public LevelManager levelManager;
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour {
 	}
 
 	void Start () {
+		scoreBonus = 1;
 		playerSprite = GetComponent<SpriteRenderer>();
 		shaderGUIText = Shader.Find("GUI/Text Shader");
 		cardsNumber = INITIAL_NUMBER_CARDS;
@@ -60,7 +62,7 @@ public class Player : MonoBehaviour {
 
 	void UpdateScore(){
 		scoreText.GetComponent<Text>().text = score.ToString("000000");
-		score += -BackgroundController.verticalVelocity;
+		score += -BackgroundController.verticalVelocity * scoreBonus;
 	}
 
 

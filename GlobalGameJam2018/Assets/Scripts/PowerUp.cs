@@ -16,7 +16,8 @@ public class PowerUp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		this.transform.position += new Vector3 (0, (BackgroundController.verticalVelocity + 5) * Time.deltaTime, 0);
+		// The magic number six is to decrease item speed.
+		this.transform.position += new Vector3 (0, (BackgroundController.verticalVelocity + 6) * Time.deltaTime, 0);
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
@@ -24,12 +25,12 @@ public class PowerUp : MonoBehaviour {
 			if (type == Type.invincible) {
 				FindObjectOfType<AudioManager>().Play("Invincible");
 				Player player = col.gameObject.GetComponent<Player> ();
-				Debug.Log ("Activate invincible");
+//				Debug.Log ("Activate invincible");
 				player.ActivateInvincible ();
 			} else {
 				FindObjectOfType<AudioManager>().Play("SpeedUp");
 				controller.ActivateSpeedUp ();
-				Debug.Log ("Activate speed up");
+//				Debug.Log ("Activate speed up");
 			}
 		}
 	}
