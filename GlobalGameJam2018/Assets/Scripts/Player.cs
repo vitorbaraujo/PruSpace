@@ -162,7 +162,7 @@ public class Player : MonoBehaviour {
 		state = State.invincible;
 		playerSprite.color = Color.green;
 
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(4f);
 
 		playerSprite.color = Color.white;
 		state = State.normal;

@@ -1131,6 +1131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardsNumber: 3
   score: 0
+  scoreBonus: 0
   velocity: {x: 0, y: 0, z: 0}
   aceleration: 0.04
   levelManager: {fileID: 114522606458011032, guid: a54ec9f0786aedf4686cacec7fb1b7f8,
@@ -1861,8 +1862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d12979619de2c418e20d58da0fcbfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &1376928824
-BoxCollider2D:
+--- !u!58 &1376928824
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1874,18 +1875,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 129.1, y: 129.1}
-  m_EdgeRadius: 0
+  m_Radius: 131.66
 --- !u!1 &1377877143
 GameObject:
   m_ObjectHideFlags: 0

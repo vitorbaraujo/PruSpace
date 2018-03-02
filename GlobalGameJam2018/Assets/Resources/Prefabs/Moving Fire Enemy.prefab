@@ -125,7 +125,7 @@ MonoBehaviour:
   bulletSprite: {fileID: 212400584983788814, guid: 9c59cead4d876c342aebf8b312ed2837,
     type: 2}
   bulletSpeed: 6
-  shootInterval: 1
+  shootInterval: 2
   weight: 3
 --- !u!212 &212255514651928506
 SpriteRenderer:

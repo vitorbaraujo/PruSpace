@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour {
 
 	private void MoveBullet(){
 		if(bulletShoot != null){
+
 			bulletShoot.transform.position = Vector2.MoveTowards(bulletShoot.transform.position, playerPosition, bulletSpeed * Time.deltaTime);
 
 			Vector2 direction = new Vector2 (playerPosition.x - bulletShoot.transform.position.x, playerPosition.y - bulletShoot.transform.position.y);
@@ -58,13 +59,13 @@ public class Enemy : MonoBehaviour {
 			gameObject.transform.position, gameObject.transform.rotation) as GameObject;
 
 			playerPosition = GameObject.Find ("Player").transform.position;
-
 		/*Rigidbody2D rigidBody = bulletShoot.GetComponent<Rigidbody2D> ();
 		rigidBody.velocity = new Vector2 (playerPosition.x, 
 			(playerPosition.y > gameObject.transform.position.y ? 1f : -1f) * bulletSpeed +
 			BackgroundController.verticalVelocity +	playerPosition.y);*/
 
-			Destroy (bulletShoot, 2f);
+			Destroy (bulletShoot, 1.5f);
+			isShooting = false;
 		}
 	}
 
@@ -83,7 +84,7 @@ public class Enemy : MonoBehaviour {
 		
 	void OnTriggerEnter2D(Collider2D collision) {
 		if ((collision.gameObject.CompareTag ("wall") || collision.gameObject.CompareTag ("enemy")) && !imprevisible) {
-			Debug.Log("Colidiu com: " + collision.gameObject.name);
+//			Debug.Log("Colidiu com: " + collision.gameObject.name);
 			direction *= -1;
 		}
 	}

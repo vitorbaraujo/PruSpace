@@ -196,7 +196,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 470791447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -236,8 +236,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -11}
-  m_SizeDelta: {x: 682, y: 634.1}
+  m_AnchoredPosition: {x: 0, y: -3.2}
+  m_SizeDelta: {x: 682, y: 1162.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &584750573
 MonoBehaviour:
@@ -256,16 +256,14 @@ MonoBehaviour:
     - 21XX... O mundo foi dominado pela tecnologia.
     - "Distra\xEDdo com os aplicativos de seus smartphones, os terr\xE1queos n\xE3o
       perceberam sua maior amea\xE7a de todos os tempos . . ."
-    - "Os Pelicanos! Piratas espaciais que tinham como objetivo principal roubar todos
-      os sat\xE9lites da Terra, afundando-a em um per\xEDodo de trevas primitivas."
+    - "Piratas espaciais! Que tinham como objetivo principal roubar todos os sat\xE9lites
+      da Terra, afundando-a em um per\xEDodo de trevas primitivas."
     - "Sem sinal de internet para compartilhar memes, o mundo \xE9 entregue ao caos
       e a loucura."
-    - "Ap\xF3s anos de opress\xE3o alien\xEDgena, foram descobertos c\xF3digos capazes
-      de destruir os meios de comunica\xE7\xE3o desses imperadores espaciais."
-    - "Como \xFAltima esperan\xE7a de entregar essas informa\xE7\xF5es para a Base
-      Espacial Secreta, foi treinado um pombo-correio pr\xF3digo para ser astronauta."
+    - "Como \xFAltima esperan\xE7a de entregar informa\xE7\xF5es para a Base Espacial
+      Secreta, foi treinado um pombo-correio pr\xF3digo para ser astronauta."
     - "Esse \xE9 voc\xEA, Callisto! D\xEA asas a esperan\xE7a e salve a civiliza\xE7\xE3o
-      da tirania dos Pelicanos!"
+      da tirania dos piratas!"
   playOnStart: 1
 --- !u!114 &584750574
 MonoBehaviour:
@@ -315,8 +313,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -593,8 +591,8 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 470791451}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PlaneDistance: 5
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0

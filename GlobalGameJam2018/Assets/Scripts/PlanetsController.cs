@@ -46,7 +46,7 @@ public class PlanetsController : MonoBehaviour {
 				break;
 		}
 
-		Debug.Log("[selectObject] path: " + path);
+//		Debug.Log("[selectObject] path: " + path);
 		return path;
 	}
 
@@ -63,7 +63,7 @@ public class PlanetsController : MonoBehaviour {
 			newObject.transform.localScale = scale;
 
 			float rand = Random.Range(3f, 10f);
-			Debug.Log ("" + rand + " " + "criou");
+//			Debug.Log ("" + rand + " " + "criou");
 			yield return new WaitForSeconds(rand);
 		}
 	}
