@@ -23,7 +23,6 @@ public class EnemiesController : MonoBehaviour {
 	IEnumerator IncreaseDifficult() {
 		yield return new WaitForSeconds(0.001f);
 
-
 		for (difficult = 1; difficult < 10; difficult++) {
 			yield return new WaitForSeconds(changeDifficultInterval);
 		}
@@ -57,11 +56,13 @@ public class EnemiesController : MonoBehaviour {
 
 		enemy = Instantiate (Resources.Load ("Prefabs/Meteor"), Vector2.zero, Quaternion.identity) as GameObject;
 
-		if(Random.Range(1,3) == 1){
-			enemy.transform.position = new Vector2(min.x, Random.Range(min.y, max.y));
+		int rand = Random.Range(1, 3);
+
+		if(rand == 1){
+			enemy.transform.position = new Vector2(min.x-1, Random.Range(min.y, max.y));
 		}
-		else{
-			enemy.transform.position = new Vector2(max.x, Random.Range(min.y, max.y));
+		else if (rand == 2){
+			enemy.transform.position = new Vector2(max.x+1, Random.Range(min.y, max.y));
 			enemy.GetComponent<Enemy>().horizontalSpeed *= -1;
 		}
 

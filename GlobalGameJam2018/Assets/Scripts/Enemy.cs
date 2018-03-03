@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour {
 	}
 		
 	void OnTriggerEnter2D(Collider2D collision) {
-		if ((collision.gameObject.CompareTag ("wall") || collision.gameObject.CompareTag ("enemy")) && !imprevisible) {
+		if (!imprevisible) {
 //			Debug.Log("Colidiu com: " + collision.gameObject.name);
 			direction *= -1;
 		}

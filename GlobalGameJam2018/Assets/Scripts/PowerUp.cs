@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
 	
-	enum Type {speed, invincible};
+	enum Type {speed, invincible, life};
 	Type type;
 	PowerUpsController controller;
 
 	// Use this for initialization
 	void Start () {
-		type = (gameObject.name == "SpeedPowerUp(Clone)" ? Type.speed : Type.invincible);
+		switch (gameObject.name){
+			case "SpeedPowerUp(Clone)":
+				type = Type.speed;
+				break;
+
+			case "InvinciblePowerUp(Clone)":
+				type = Type.invincible;
+				break;
+
+			case "LifePowerUp(Clone)":
+				type = Type.life;
+				break;
+		}
 		controller = gameObject.transform.parent.GetComponent<PowerUpsController> ();
 	}
 	
@@ -27,10 +39,15 @@ public class PowerUp : MonoBehaviour {
 				Player player = col.gameObject.GetComponent<Player> ();
 //				Debug.Log ("Activate invincible");
 				player.ActivateInvincible ();
-			} else {
+			} 
+			else if(type == Type.speed){
 				FindObjectOfType<AudioManager>().Play("SpeedUp");
 				controller.ActivateSpeedUp ();
 //				Debug.Log ("Activate speed up");
+			}
+			else{
+				FindObjectOfType<AudioManager>().Play("SpeedUp");
+				controller.LifeUp ();
 			}
 		}
 	}

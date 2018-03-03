@@ -12,7 +12,7 @@ public class PowerUpsController : MonoBehaviour {
 	}
 
 	void SpawnPowerUp () {
-		int rand = Random.Range (0, 2);
+		int rand = Random.Range (0, 100);
 		GameObject newPowerUp = null;
 
 		float distance = Mathf.Abs (transform.position.z - Camera.main.transform.position.z);
@@ -21,18 +21,19 @@ public class PowerUpsController : MonoBehaviour {
 
 		Vector3 xOffset = new Vector3(x, 0, 0);
 
-		if (rand == 0) {
+		if (rand < 40) {
 			newPowerUp = Instantiate (Resources.Load("Prefabs/SpeedPowerUp"), transform.position + xOffset, Quaternion.identity) as GameObject;
-		} else {
+		} else if (rand >= 40 && rand < 80){
 			newPowerUp = Instantiate (Resources.Load("Prefabs/InvinciblePowerUp"), transform.position + xOffset, Quaternion.identity) as GameObject;
+		} else {
+			newPowerUp = Instantiate (Resources.Load("Prefabs/LifePowerUp"), transform.position + xOffset, Quaternion.identity) as GameObject;
 		}
 
 		newPowerUp.transform.parent = this.transform;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	public void LifeUp(){
+		FindObjectOfType<Player>().cardsNumber++;
 	}
 
 	public void ActivateSpeedUp(){
